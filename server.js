@@ -4,16 +4,12 @@ const port = process.env.PORT || 5010;
 
 app.get("/", function(req, res){
 	//res.send("Iam shakthi");
-	res.sendFile(__dirname+"/index.html")
+	res.sendFile(__dirname+"/resume.html")
 });
 app.get("/resume.html", function(req, res){
 	//res.send("Iam shakthi");
 	res.sendFile(__dirname+"/resume.html")
 });
-
-
-
-
 
 app.listen(port, function(){
 	console.log("Server running on http://localhost:"+port);
