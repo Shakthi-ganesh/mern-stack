@@ -6,7 +6,7 @@ app.get("/", function(req, res){
 	//res.send("Iam shakthi");
 	res.sendFile(__dirname+"/index.html")
 });
-app.get("/resume.html", function(req, res){
+app.get("resume.html", function(req, res){
 	//res.send("Iam shakthi");
 	res.sendFile(__dirname+"/resume.html")
 });
