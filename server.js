@@ -6,9 +6,14 @@ app.get("/", function(req, res){
 	//res.send("Iam shakthi");
 	res.sendFile(__dirname+"/index.html")
 });
-app.get("/resume", function(req, res){
+app.get("/", function(req, res){
+	//res.send("Iam shakthi");
 	res.sendFile(__dirname+"/resume.html")
 });
+
+
+
+
 
 app.listen(port, function(){
 	console.log("Server running on http://localhost:"+port);
