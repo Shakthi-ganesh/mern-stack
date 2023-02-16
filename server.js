@@ -24,16 +24,22 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
     if (err) {
         console.error(err);
     } else {
-        console.log('Connected to database');
-        userLib.createFirstUser(function(err, res) {
-            if (err) {
-             
-            } else {
-                console.log(res);
-            }
+        console.log('DB CONNECTED');
+        userLib.getAllUsers(function(err,res)
+        {
+          if(res.length==0)
+          {
+            userLib.createFirstUser(function(err, res) {
+                if (err) {
+                        console.error(err);
+                } else {
+                    console.log(res);
+                }
+            });
+          }
         });
         app.listen(port, function() {
-            console.log('https//locolhost running at ' + port);
+            console.log('https//locolhost running at'+port);
         });
     }
 });

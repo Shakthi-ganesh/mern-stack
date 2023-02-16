@@ -12,7 +12,7 @@ module.exports.getAllUsers = async function(callback) {
 module.exports.createFirstUser = async function(callback) {
     try {
         var user = {
-            userName: "shakthi ganesh",
+            userName: "jasganesh",
             yearOfGraduation: 2024,
         };
         var newUser = new userModel(user);
