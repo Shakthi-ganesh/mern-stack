@@ -27,7 +27,7 @@ module.exports.createUser = async function(user, callback) {
 
 module.exports.getAllUsers = async function(callback) {
     try {
-        var users = await userModel.find({});
+        var users = await userModel.find({isDeleted:false});
         callback(null, users);
     } catch (err) {
         callback(err, null);

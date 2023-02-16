@@ -55,27 +55,20 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
             yearOfGraduation: 2024,
         };
 
-        // userLib.createUser(user1, function(err, res) {
-        //     if (err) {
-        //         console.error(err);
-        //     } else {
-        //         console.log("User created:");
-        //         console.log(res);
-        //     }
-        // });
+        userLib.createUser(user2, function(err, res) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("User created:");
+                console.log(res);
+            }
+        });
 
-        // userLib.createUser(user2, function(err, res) {
-        //     if (err) {
-        //         console.error(err);
-        //     } else {
-        //         console.log("User created:");
-        //         console.log(res);
-        //     }
-        // });
+     
 
         //  Get user by userName
 
-        // userLib.getUserByUserName("harshavb08", function(err, res) {
+        // userLib.getUserByUserName("shakthiganesh", function(err, res) {
         //     if (err) {
         //         console.error(err);
         //     } else {
@@ -92,7 +85,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
             }
         };
 
-        // userLib.updateUserByUserName("harshavb08", newValues, function(err, res) {
+        // userLib.updateUserByUserName("shakthiganesh", newValues, function(err, res) {
         //     if (err) {
         //         console.error(err);
         //     } else {
@@ -103,14 +96,14 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
 
         //delete user by userName
 
-        // userLib.deleteUserByUserName("testUser", function(err, res) {
-        //     if (err) {
-        //         console.error(err);
-        //     } else {
-        //         console.log("User deleted by userName:");
-        //         console.log(res);
-        //     }
-        // });
+        userLib.deleteUserByUserName("ganesh", function(err, res) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("User deleted by userName:");
+               
+            }
+        });
 
 
         app.listen(port, function() {
