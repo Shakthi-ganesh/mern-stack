@@ -2,9 +2,13 @@ require('dotenv').config();
 const userLib = require("./backend/lib/userLib");
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
-const port = process.env.PORT || 5010;
 
+app.use(express.static("public"));
+const options = {
+    extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
+    index: ['index.html'],
+}
+const port = process.env.PORT || 5010;
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {

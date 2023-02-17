@@ -1,42 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Card</title>
+    <link rel="stylesheet" href="/public/style.css">
     <style>
-       .box{
-        color: blue;
-        height: 200px;
-        width: 200px;
-        margin-top: 20px;
-         background-color: blue;
-         margin-left: 20px;
-        
-       }
-       .card{
-        display: flex;
-       }
+        body{
+            align-items: center;}
+        .card
+        {
+            border-radius: 16px;
+            border: 1px solid lightgrey;
+            justify-content: center;
+            width: 360px;
+            padding: 10px;
+            margin: 50px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .card-img
+        {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .flexbox
+        {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card:hover
+        {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .container > p, h4
+        {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color :rgb(35, 51, 58);
+           
+        }
     </style>
 </head>
 <body>
-    
-    <div class="card">
-        <div class="box">
-      
-        </div>
-        <div class="box">
-        </div>
-        <div class="box">
-            
-        </div>
-        <div class="box">
+    <div class="flexbox">
+        <div class="card">
+            <img id="userImage" src="public/images/scott.jpg" alt="Profile pic" style="width:100%">
+            <div class="container">
+              <h4 id="userTitle"><b>Micheal Scott</b></h4>
+              <p id = "userDesignation"> Manager</p>
+            </div>
+            <button onclick="toggleUser()">Toggle</button>
         </div>
     </div>
+    <script>
+        const userOne = {
+            name : "Micheal Scott",
+            designation : "Manager of Paper company",
+            image : "public/images/scott.jpg",
+        }
+        const userTwo = {
+            name : "Tanisha scott",
+            designation : "Fatima Mam",
+            image : "public/images/michealtan.jpg",
+        }
 
-   
+        let currentIsMicheal = true;
+        let currentUser = userOne;
 
+        let userTitle = document.getElementById("userTitle");
+        let userImage = document.getElementById("userImage");
+        let userDesignation = document.getElementById("userDesignation");
+
+
+        let toggleUser = function() {
+            if(currentIsMicheal){
+                currentUser = userTwo;
+                currentIsMicheal = false;
+            }
+            else{
+                currentUser = userOne;
+                currentIsMicheal = true;
+            }
+
+            userTitle.innerHTML = currentUser.name;
+            userDesignation.innerHTML = currentUser.designation;
+            userImage.src = currentUser.image;
+        }
+
+    </script>
 </body>
 </html>
