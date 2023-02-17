@@ -3,7 +3,7 @@ const userLib = require("./backend/lib/userLib");
 const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5010;
+const port = process.env.PORT || 3010;
 const options = { extensions:['html','htm','css','js','ico','jpg','jpeg','png','svg'],index:['card.html']}
 
 app.use(express.static(__dirname));
