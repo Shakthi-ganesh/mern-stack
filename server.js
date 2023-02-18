@@ -13,6 +13,10 @@ app.use(express.static("public",options));
 app.get("/card", function(req, result){
 	result.sendFile(__dirname+"/card.html");
 });
+app.get("/sharma", function(req, result){
+	result.sendFile(__dirname+"/tansiha.html");
+});
+
 
 app.get("/resume", function(req, result){
 	result.sendFile(__dirname+"/resume.html");
