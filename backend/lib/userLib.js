@@ -10,6 +10,7 @@ module.exports.getAllUsers = async function(callBack) {
     }
 }
 
+
 module.exports.creatFirstUser = async function(callBack) {
     try{
         var user = {
