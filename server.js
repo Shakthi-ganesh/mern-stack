@@ -13,13 +13,16 @@ app.use(express.static("public",options));
 app.get("/card", function(req, result){
 	result.sendFile(__dirname+"/card.html");
 });
-app.get("/sharma", function(req, result){
-	result.sendFile(__dirname+"/tansiha.html");
+app.get("/tanisha", function(req, result){
+	result.sendFile(__dirname+"/tanisha.html");
 });
 
 
 app.get("/resume", function(req, result){
 	result.sendFile(__dirname+"/resume.html");
+});
+app.get("/weather", function(req, result){ 
+	result.sendFile(__dirname+"/weather.html");
 });
 mongoose.set('strictQuery',true);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function(err){
