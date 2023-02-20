@@ -2,7 +2,7 @@ console.log("Hello from JS");
 
 //document.getElementById("loader").style.display = "none";
 
-document.getElementById("loader").style.display = "block";
+document.getElementById("loader").style.display = "none";
 
 fetch("/api/todos")
     .then(function(response){

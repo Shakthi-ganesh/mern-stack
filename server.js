@@ -1,5 +1,6 @@
 require('dotenv').config();
 const userLib = require("./backend/lib/userLib");
+const todoLib = require("./backend/lib/todoLib");
 const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
@@ -13,8 +14,19 @@ app.use(express.static("public",options));
 app.get("/card", function(req, result){
 	result.sendFile(__dirname+"/card.html");
 });
-app.get("/tanisha", function(req, result){
-	result.sendFile(__dirname+"/tanisha.html");
+app.get("/name", function(req, result){
+	result.sendFile(__dirname+"/name.html");
+});
+
+app.get("api/todos",function(req,res){
+	todoLib.getAllTodos(function(err,todos){
+		if(err) {
+			res.json({status : "error",data:null});
+		}
+		else {
+			res.json({status : "success",data : todos});
+		}
+	});
 });
 
 
