@@ -4,11 +4,11 @@ const todoLib = require("./backend/lib/todoLib");
 const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3010;
+const port = process.env.PORT || 5010;
 const options = { extensions:['html','htm','css','js','ico','jpg','jpeg','png','svg'],index:['card.html']}
 
 app.use(express.static(__dirname));
-
+app.use(express.json());
 app.use(express.static("public",options));
 
 app.get("/card", function(req, result){
@@ -17,8 +17,14 @@ app.get("/card", function(req, result){
 app.get("/name", function(req, result){
 	result.sendFile(__dirname+"/name.html");
 });
+app.get("/resume", function(req, result){
+	result.sendFile(__dirname+"/resume.html");
+});
+app.get("/weather", function(req, result){ 
+	result.sendFile(__dirname+"/weather.html");
+});
 
-app.get("api/todos",function(req,res){
+app.get("/api/todos",function(req,res){
 	todoLib.getAllTodos(function(err,todos){
 		if(err) {
 			res.json({status : "error",data:null});
@@ -28,14 +34,23 @@ app.get("api/todos",function(req,res){
 		}
 	});
 });
+app.post("/api/todos",function(req,res)
+{
+   const todo=req.body;
+   todoLib=todoLib.createTodo(todo,function(err,dbtodo)
+   {
+	if(err) {
+		res.json({status : "error",data:null});
+	}
+	else {
+		res.json({status : "success",data : dbtodo});
+	}
+
+   });
+});
 
 
-app.get("/resume", function(req, result){
-	result.sendFile(__dirname+"/resume.html");
-});
-app.get("/weather", function(req, result){ 
-	result.sendFile(__dirname+"/weather.html");
-});
+
 mongoose.set('strictQuery',true);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING,{},function(err){
 	if(err)
