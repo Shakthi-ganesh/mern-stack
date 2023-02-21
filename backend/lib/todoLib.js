@@ -65,7 +65,8 @@ module.exports.updateTodoById = async function(id,data,callback){
 module.exports.deleteTodoById = async function(id,callback){
     try{
         var todo = {
-            _id: id,
+            // _id: new mongoose.Types.objectId(id),
+            _id:id,
         };
         var result = await todoModel.updateOne(todo,{isDeleted: true});
         callback(null,result);

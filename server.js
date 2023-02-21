@@ -48,6 +48,34 @@ app.post("/api/todos",function(req,res)
 
    });
 });
+app.put("/api/todos/:todoId",function(req,res)
+{
+	const todo=req.body;
+	const todoId=re.params.todoId;
+	todoLib.updateTodoById(todoId,todo,function(err,dbtodo)
+	{
+		if(err) {
+			res.json({status : "error",data:null});
+		}
+		else {
+			res.json({status : "success",data : dbtodo});
+		}
+	});
+
+});
+app.delete("/api/todos/:todoId",function(req,res)
+{
+
+   todoLib.deleteTodoById(todoId,function(err,dbtodo)
+   {
+	if(err) {
+		res.json({status : "error",data:null});
+	}
+	else {
+		res.json({status : "success",data : dbtodo});
+	}
+   });
+});
 
 
 
