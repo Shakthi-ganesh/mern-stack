@@ -1,5 +1,6 @@
 // const userModel = require("../models/userModel");
-import {userModel} from "../models/userModel.js";
+import mongoose from "mongoose";
+import userModel from "../models/userModel.js";
 export async function getAllUsers(callBack) {
     try{
         var users = await userModel.find({isDeleted : false});
@@ -65,7 +66,7 @@ export async function deleteUser(userName,callBack) {
     }
 }
 
-export const getUserByFilter = async function(filter,callBack){
+export  async function getUserByFilter(filter,callBack){
     try{
         var user = await userModel.findOne(filter);  
         callBack(null,user);
