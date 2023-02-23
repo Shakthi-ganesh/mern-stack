@@ -11,7 +11,7 @@ import * as todoLib from "./backend/lib/todoLib.js";
 import mongoose from "mongoose";
 // const express = require('express');
 import express,{request} from "express";
-// const { request } = require("express");
+
 const app = express();
 const port = process.env.PORT || 5010;
 const options = {
@@ -71,23 +71,23 @@ app.delete(("/api/todos/:todoid"),function(req,res){
 	});
 });
 app.get("/", function(req, res){
-	res.sendFile(__dirname+"/index.html");
+	res.sendFile(process.cwd()+"/index.html");
 });
 
 app.get("/resume", function(req, res){
-	res.sendFile(__dirname+"/resume.html");
+	res.sendFile(process.cwd()+"/resume.html");
 });
 
 app.get("/card", function(req, res){
-	res.sendFile(__dirname+"/card.html");
+	res.sendFile(process.cwd()+"/card.html");
 });
 
 app.get("/weather", function(req, res){
-	res.sendFile(__dirname+"/weather.html");
+	res.sendFile(process.cwd()+"/weather.html");
 });
 
 app.get("/todo", function(req, res){
-	res.sendFile(__dirname+"/frontend/html/todo.html");
+	res.sendFile(process.cwd()+"/todo.html");
 });
 
 mongoose.set('strictQuery', true);

@@ -95,8 +95,7 @@ fetch("/api/todos")
 
 
     var light = true;
-
-
+    
     function setTheme(){
         if(light){
             document.documentElement.setAttribute("data-bs-theme","dark");
