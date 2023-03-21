@@ -8,7 +8,7 @@ import todoModel from "../models/todoModel.js";
 3. getSingleTodoById
 4. getTodosByQuery
 5. updateTodoById
-6. DeleteTodoById
+6. DeleteTodoByI
 */
 
 export const createTodo = async function(todo,callback){
